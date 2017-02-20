@@ -1,0 +1,1 @@
+FROM bucharestgold/centos7-s2i-nodejs:current
