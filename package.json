@@ -9,7 +9,8 @@
     "lint": "eslint test/*.js index.js",
     "prepublish": "nsp check",
     "coverage": "istanbul cover tape test/*.js",
-    "dependencyCheck": "szero . --ci"
+    "dependencyCheck": "szero . --ci",
+    "start": "npm run lint ; npm run test ; node server.js"
   },
   "devDependencies": {
     "eslint": "~3.8.1",
