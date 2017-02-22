@@ -3,6 +3,51 @@
 A basic Hapi app as base to be built using [origin-s2i-nodejs](https://github.com/bucharest-gold/origin-s2i-nodejs) docker image.
 
 
+## The app
+
+```bash
+npm install 
+npm start
+```
+
+```bash
+$ npm start
+
+http://0.0.0.0:8080
+  GET    /                              Say hello!
+  GET    /info                          Informations about the Operating system.
+  GET    /status                        
+
+Server running at: http://0.0.0.0:8080
+```
+
+Go to '/' and you will see a 'hello':
+
+`
+Hello Hapi!
+`
+
+Go to '/info' and you will see info about your server:
+
+```
+Server info:
+Host: hf-ThinkPad-T440
+OS Type: Linux
+OS Platform: linux
+OS Arch: x64
+OS Release: 4.4.0-63-generic
+OS Uptime: 5269
+OS Free memory: 7690.61328125mb
+OS Total memory: 11705.98046875mb
+OS CPU count: 4
+OS CPU model: Intel(R) Core(TM) i7-4600U CPU @ 2.10GHz
+OS CPU speed: 3002mhz
+```
+
+Go to '/status' and you will see more CPU, memory info:
+
+![Alt a](https://github.com/bucharest-gold/s2i-nodejs/raw/master/a.png)
+
 ```bash
 git clone git@github.com:bucharest-gold/s2i-nodejs.git
 cd s2inode

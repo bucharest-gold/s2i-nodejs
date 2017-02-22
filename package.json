@@ -1,5 +1,5 @@
 {
-  "name": "s2inode",
+  "name": "s2i-nodejs",
   "version": "0.0.1",
   "main": "index.js",
   "author": "Red Hat, Inc.",
