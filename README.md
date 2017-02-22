@@ -2,6 +2,18 @@
 
 A basic Hapi app as base to be built using [origin-s2i-nodejs](https://github.com/bucharest-gold/origin-s2i-nodejs) docker image.
 
+## Creating a s2i image with [origin-s2i-nodejs](https://github.com/bucharest-gold/origin-s2i-nodejs)
+
+1. Download the [s2i binary](https://github.com/openshift/source-to-image/releases) and put in your path
+2. git clone git@github.com:bucharest-gold/s2i-nodejs.git
+3. cd s2i-nodejs
+4. run `s2i build . bucharestgold/centos7-s2i-nodejs s2i-nodejs`
+
+To run your app: `docker run -it -p 8080:8080 s2i-nodejs`
+
+You can specify the node.js version
+
+
 
 ## The app
 
