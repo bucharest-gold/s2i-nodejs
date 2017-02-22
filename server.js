@@ -3,19 +3,26 @@
 const Hapi = require('hapi');
 const os = require('os');
 const server = new Hapi.Server();
+
 server.connection({ port: 8080, host: '0.0.0.0' });
 
 server.route({
   method: 'GET',
   path: '/',
+  config: {
+    description: 'Say hello!',
+  },
   handler: (request, reply) => {
-    reply('Hello');
+    reply('Hello Hapi!');
   }
 });
 
 server.route({
   method: 'GET',
   path: '/info',
+  config: {
+    description: 'Informations about the Operating system.',
+  },
   handler: (request, reply) => {
     let status = `
       Server info:<br>
@@ -33,6 +40,15 @@ server.route({
     reply(status);
   }
 });
+
+// This will enable /status and show information about 
+// CPU and memory usage.
+server.register({
+  register: require('hapijs-status-monitor')
+});
+
+// This will print all the paths to stdout when the App starts.
+server.register({ register: require('blipp')});
 
 server.start(error => {
   if (error) {
