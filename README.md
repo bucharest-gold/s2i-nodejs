@@ -9,7 +9,7 @@ Download the [s2i binary](https://github.com/openshift/source-to-image/releases)
 ```bash
 git clone git@github.com:bucharest-gold/s2i-nodejs.git
 cd s2i-nodejs
-`s2i build . bucharestgold/centos7-s2i-nodejs s2i-nodejs`
+s2i build . bucharestgold/centos7-s2i-nodejs s2i-nodejs
 ```
 
 Run:
@@ -20,16 +20,22 @@ docker run -it -p 8080:8080 s2i-nodejs
 
 You can specify the node.js version too.
 
-```
-`s2i build . bucharestgold/centos7-s2i-nodejs:4.7.3 s2i-nodejs`
+```bash
+s2i build . bucharestgold/centos7-s2i-nodejs:4.7.3 s2i-nodejs
 ```
 
 > To see a list of Node.js versions: [https://hub.docker.com/r/bucharestgold/centos7-nodejs/tags/](https://hub.docker.com/r/bucharestgold/centos7-nodejs/tags/)
 
 
-## Using Openshift origin client
+## Using Openshift origin client tools
 
-TBD
+Download the [oc binary](https://github.com/openshift/origin/releases/) and put in your path.
+
+```bash
+oc new-app bucharestgold/centos7-s2i-nodejs:7.5.0~https://github.com/bucharest-gold/s2i-nodejs.git
+```
+
+TBD...
 
 ## The app
 
