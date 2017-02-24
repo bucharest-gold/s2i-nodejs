@@ -27,15 +27,22 @@ s2i build . bucharestgold/centos7-s2i-nodejs:4.7.3 s2i-nodejs
 > To see a list of Node.js versions: [https://hub.docker.com/r/bucharestgold/centos7-nodejs/tags/](https://hub.docker.com/r/bucharestgold/centos7-nodejs/tags/)
 
 
-## Using Openshift origin client tools
+## Using Openshift origin
+
+
+### Using oc client with `oc cluster up`
 
 Download the [oc binary](https://github.com/openshift/origin/releases/) and put in your path.
 
 ```bash
-oc new-app bucharestgold/centos7-s2i-nodejs:7.5.0~https://github.com/bucharest-gold/s2i-nodejs.git
+oc cluster up
+oc login localhost:8443 -u developer
+oc new-app bucharestgold/centos7-s2i-nodejs:7.6.0~https://github.com/bucharest-gold/s2i-nodejs.git
+oc expose svc/s2i-nodejs
 ```
 
-TBD...
+Run `oc get all` and you will see something like `s2-nodejs-myproject.IP-ADDRESS-HERE.xip.io`, then
+put this address on your browser and you will see the app running.
 
 ## The app
 
