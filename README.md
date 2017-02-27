@@ -37,7 +37,23 @@ Download the [oc binary](https://github.com/openshift/origin/releases/) and put 
 ```bash
 oc cluster up
 oc login localhost:8443 -u developer
+```
+
+The password is `developer`
+
+```bash
 oc new-app bucharestgold/centos7-s2i-nodejs:7.6.0~https://github.com/bucharest-gold/s2i-nodejs.git
+```
+
+Run 
+
+```bash
+oc logs -f bc/s2i-nodejs 
+```
+
+And wait for `Push successful` log message.
+
+```bash
 oc expose svc/s2i-nodejs
 ```
 
