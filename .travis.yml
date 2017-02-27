@@ -1,0 +1,24 @@
+dist: trusty
+before_script:
+  - sudo mount --make-shared /
+  - sudo service docker stop
+  - sudo sed -i 's/DOCKER_OPTS=\"/DOCKER_OPTS=\"--insecure-registry 172.30.0.0\/16 /' /etc/default/docker
+  - sudo cat /etc/default/docker
+  - sudo service docker start
+  - ps -ax | grep /usr/bin/docker
+  - wget https://github.com/openshift/origin/releases/download/v1.4.1/openshift-origin-client-tools-v1.4.1-3f9807a-linux-64bit.tar.gz
+  - tar xvzOf openshift-origin-client-tools-v1.4.1-3f9807a-linux-64bit.tar.gz > oc.bin
+  - sudo mv oc.bin /usr/bin/oc
+  - sudo chmod 755 /usr/bin/oc
+script:
+  - oc cluster up
+  - oc login -u system:admin -n default
+  - oc new-app bucharestgold/centos7-s2i-nodejs:7.6.0~https://github.com/bucharest-gold/s2i-nodejs.git
+  - oc expose svc/s2i-nodejs
+  - oc get all
+  - oc get routes
+  - oc status -v
+  - sleep 20
+  - curl $(oc get routes | awk '{print $2}' | grep xip.io):8080
+#notifications:
+#  irc: "chat.freenode.net#brass-monkey"
