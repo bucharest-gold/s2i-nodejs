@@ -11,15 +11,6 @@ before_script:
   - sudo mv oc.bin /usr/bin/oc
   - sudo chmod 755 /usr/bin/oc
 script:
-  - oc cluster up
-  - oc login -u system:admin -n default
-  - oc new-app bucharestgold/centos7-s2i-nodejs:7.6.0~https://github.com/bucharest-gold/s2i-nodejs.git
-  - sleep 59
-  - oc expose svc/s2i-nodejs
-  - oc get all
-  - oc get routes
-  - oc status -v
-  - sleep 59
-  - curl $(oc get routes | awk '{print $2}' | grep xip.io)
+  - tags.sh
 #notifications:
 #  irc: "chat.freenode.net#brass-monkey"
