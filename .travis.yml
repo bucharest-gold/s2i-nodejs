@@ -11,6 +11,6 @@ before_script:
   - sudo mv oc.bin /usr/bin/oc
   - sudo chmod 755 /usr/bin/oc
 script:
-  - tags.sh
+  - ./tags.sh
 #notifications:
 #  irc: "chat.freenode.net#brass-monkey"
