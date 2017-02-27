@@ -19,6 +19,6 @@ script:
   - oc get routes
   - oc status -v
   - sleep 20
-  - curl $(oc get routes | awk '{print $2}' | grep xip.io):8080
+  - curl $(oc get routes | awk '{print $2}' | grep xip.io)
 #notifications:
 #  irc: "chat.freenode.net#brass-monkey"
