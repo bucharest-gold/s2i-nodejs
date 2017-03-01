@@ -3,7 +3,7 @@
 oc cluster up
 oc login -u system:admin
 
-for TAG in $(wget -q https://registry.hub.docker.com/v1/repositories/bucharestgold/centos7-s2i-nodejs/tags -O -  | sed -e 's/[][]//g' -e 's/"//g' -e 's/ //g' | tr '}' '\n'  | awk -F: '{print $3}');
+for TAG in $(wget -q https://registry.hub.docker.com/v1/repositories/bucharestgold/centos7-nodejs/tags -O -  | sed -e 's/[][]//g' -e 's/"//g' -e 's/ //g' | tr '}' '\n'  | awk -F: '{print $3}');
 do
   TAGCHANGED=${TAG//./}
   TAGCHANGED=$(echo $TAGCHANGED | awk '{print tolower($0)}')
