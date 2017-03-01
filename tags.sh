@@ -23,7 +23,9 @@ do
 
   echo "Starting s2inodejs app..."
   oc new-app s2inodejs -l app=s2inodejs
+  sleep 60
   oc expose svc/s2inodejs
+  sleep 60
 
   echo "================================================================"
   curl $(oc get routes | awk '{print $2}' | grep xip.io)
