@@ -10,5 +10,5 @@ before_script:
   - sudo chmod 755 /usr/bin/oc
 script:
   - ./tags.sh
-notifications:
-  irc: "chat.freenode.net#brass-monkey"
+#notifications:
+#  irc: "chat.freenode.net#brass-monkey"
