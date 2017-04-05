@@ -1,1 +1,1 @@
-FROM bucharestgold/centos7-nodejs:latest
+FROM bucharestgold/centos7-nodejs:7.8.0
