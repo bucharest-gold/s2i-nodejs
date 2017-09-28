@@ -11,4 +11,4 @@ before_script:
 script:
   - ./tags.sh
 #notifications:
-#  irc: "chat.freenode.net#brass-monkey"
+#  irc: "chat.freenode.net#bucharest-gold"
